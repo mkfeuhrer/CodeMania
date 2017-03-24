@@ -8,23 +8,23 @@
             android:title="Home" />
         <item
             android:id="@+id/searchuser"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/searchusers"
             android:title="Search User" />
         <item
             android:id="@+id/problemset"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/mindmapfilled"
             android:title="Problem Set" />
         <item
             android:id="@+id/cal"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/today"
             android:title="Contest Calendar" />
         <item
             android:id="@+id/tutorial"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/school"
             android:title="Tutorials" />
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/logout"
             android:title="Logout" />
     </group>
 

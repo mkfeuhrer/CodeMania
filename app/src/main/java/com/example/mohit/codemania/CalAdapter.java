@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,12 +35,21 @@ public class CalAdapter extends ArrayAdapter<CalData> {
         nameText=(TextView)list.findViewById(R.id.name);
         timeText =(TextView)list.findViewById(R.id.time);
 
+        String formattedDate = null;
         ImageView imageView = (ImageView) list.findViewById(R.id.img);
-
-        dateText.setText(data.date());
+        try {
+            formattedDate=formatDate(data.date());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        dateText.setText(formattedDate);
         nameText.setText(data.getName());
         timeText.setText(data.getTime());
-
+        try {
+            formatDate(data.date());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String url = data.getUrl();
         if(url.contains("codeforces"))
             imageView.setImageResource(R.drawable.codeforces);
@@ -45,5 +57,14 @@ public class CalAdapter extends ArrayAdapter<CalData> {
             imageView.setImageResource(R.drawable.hackerrank);
 
         return list;
+    }
+    String formatDate(String date) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+        Date date1;
+        date1 = df.parse(date);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+        String formattedDate= dateFormat.format(date1);
+
+        return formattedDate;
     }
 }

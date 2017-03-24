@@ -2,11 +2,8 @@ package com.example.mohit.codemania;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,8 +31,8 @@ public class SuggestMain extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggest_main);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Spinner spinner = (Spinner) findViewById(R.id.tagspinner);
-        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.problem_tags,android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.problem_tags,android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -144,20 +141,17 @@ public class SuggestMain extends AppCompatActivity  {
          ArrayList<ProblemData> pdata ;
         final ArrayList<ProblemData> pdata1;
         pdata1=parsed.parseJson();
-
-
-
         ListView listView = (ListView)findViewById(R.id.list);
 
         pdata = parsed.parseJson();
         Adapter adapter = new Adapter(this,pdata);
 
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position,long arg3) {
+                view.setSelected(true);
                 ProblemData dat = pdata1.get(position);
                 String url1 = "http://codeforces.com/problemset/problem/";
                 url1+=dat.getid()+"/";
@@ -165,7 +159,6 @@ public class SuggestMain extends AppCompatActivity  {
                 Intent it =  new Intent(Intent.ACTION_VIEW);
                 it.setData(Uri.parse(url1));
                 startActivity(it);
-
             }
         });
 
