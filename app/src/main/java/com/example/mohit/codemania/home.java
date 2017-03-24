@@ -78,6 +78,9 @@ public class home extends AppCompatActivity
             finish();
             // Handle the camera action
         } else if (id == R.id.searchuser) {
+            Intent i = new Intent(home.this, SearchUser.class);
+            startActivity(i);
+            finish();
 
         } else if (id == R.id.problemset) {
 
