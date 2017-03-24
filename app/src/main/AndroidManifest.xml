@@ -29,6 +29,16 @@
         </activity>
         <activity android:name=".Signup" />
         <activity android:name=".SearchUser"></activity>
+        <activity
+            android:name=".Browser"
+            android:label="@string/title_activity_tabbed"
+            android:parentActivityName=".Tabbed" />
+
+        <activity
+            android:name=".Tabbed"
+            android:label="@string/title_activity_tabbed"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -50,17 +50,17 @@ public class SearchUser extends AppCompatActivity {
         username = (TextView) findViewById(R.id.username);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         submission = (Button) findViewById(R.id.submissions);
-        webpage = (EditText) findViewById(R.id.Codechef_handle);
-        codechefrating = (TextView) findViewById(R.id.Codechef_handle);
+        //webpage = (EditText) findViewById(R.id.Codechef_handle);
+        //codechefrating = (TextView) findViewById(R.id.Codechef_handle);
 
 
         queryButton = (Button) findViewById(R.id.queryButton);
         queryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ccuser = webpage.getText().toString();
+                //String ccuser = webpage.getText().toString();
 
-                Log.e("user", ccuser);
+                //Log.e("user", ccuser);
 
                 new RetrieveFeedTask().execute();
             }
