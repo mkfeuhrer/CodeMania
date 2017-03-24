@@ -1,2 +1,4 @@
 # CodeMania
-Welcome Geeks !!  CodeMania is an educational app emphasising on the needs of competitive programming providing ample resources and updates from various sites.
+
+An app that excites a Geek and here it is !! <br> 
+<br>CodeMania is an educational app emphasising on the needs of competitive programming . Providing you with Contest Calendar , ProblemSets , Tutorials and User Rating Checks . Its a complete app keeping you up to date with advancement .<br>
