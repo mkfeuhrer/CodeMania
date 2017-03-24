@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">CodeMania</string>
-
+    <string-array name="problem_tags">
+        <item>dp</item><item>dfs</item>
+        <item>implementation</item><item>tree</item>
+        <item>binary search</item><item>divide and conquer</item>
+        <item>greedy</item><item>math</item>
+    </string-array>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_tabbed">Tutorials</string>
+    <string name="title_activity_problemset">Problem Set</string>
+    <string name="title_activity_userdata">Userdata</string>
+    <string name="title_activity_Calendar">Contest Calendar</string>
     <string name="action_settings">Settings</string>
 </resources>

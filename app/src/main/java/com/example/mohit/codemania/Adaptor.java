@@ -26,7 +26,7 @@ public class Adaptor extends ArrayAdapter<Tutorial> {
         View list = recycle;
         if(list == null)
         {
-            list = LayoutInflater.from(getContext()).inflate(R.layout.list_item,parent,false);
+            list = LayoutInflater.from(getContext()).inflate(R.layout.list_item_tut,parent,false);
         }
         Tutorial t = getItem(pos);
         String head = t.getHeading();

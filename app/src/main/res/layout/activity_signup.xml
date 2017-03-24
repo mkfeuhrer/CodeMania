@@ -1,101 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#a7e5fa"
-    tools:context="com.example.mohit.codemania.Signup">
+    android:orientation="vertical"
+    android:weightSum="100">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:weightSum="100"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30">
+        </View>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:src="@drawable/code" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30">
+        </View>
+    </LinearLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Username"
-        android:ems="10"
-        android:id="@+id/txt1"
-        android:layout_above="@+id/txt2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Username:"
+            android:id="@+id/txt1"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:hint="Password"
-        android:id="@+id/txt2"
-        android:layout_above="@+id/txt3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Password:"
+            android:inputType="textPassword"
+            android:id="@+id/txt2"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:id="@+id/txt3"
-        android:layout_above="@+id/txt4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="11dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:hint="Email"
-        android:id="@+id/txt4"
-        android:layout_above="@+id/txt5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="14dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Confirm Password:"
+            android:inputType="textPassword"
+            android:id="@+id/txt3"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt5"
-        android:hint="Codeforces Handle"
-        android:layout_above="@+id/txt6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:hint="Mobile No."
-        android:ems="10"
-        android:id="@+id/txt6"
-        android:layout_above="@+id/signup2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="64dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Email:"
+            android:inputType="textEmailAddress"
+            android:id="@+id/txt4"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Signup"
-        android:background="#adadae"
-        android:id="@+id/signup2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Codeforces Handle:"
+            android:id="@+id/txt5"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="90"
+            android:hint="Mobile:"
+            android:inputType="number"
+            android:id="@+id/txt6"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="35"
+            android:layout_height="match_parent"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"
+            android:text="Signup"
+            android:background="#f4a302"
+            android:id="@+id/signup2"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35"/>
+    </LinearLayout>
+
+
+</LinearLayout>

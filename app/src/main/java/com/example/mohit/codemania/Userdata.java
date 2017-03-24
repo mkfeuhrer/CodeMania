@@ -1,8 +1,11 @@
 package com.example.mohit.codemania;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,18 +22,16 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 
 
-public class SearchUser extends AppCompatActivity {
+public class Userdata extends AppCompatActivity {
 
-    EditText handle, webpage;
     Button submission, queryButton;
-    TextView responseView, country, rating, username, city, maxrating, contribution, codechefrating;
+    TextView responseView, country, rating, username, city, maxrating, contribution, handle;
     ProgressBar progressBar;
     static final String API_URL = "http://codeforces.com/api/user.info?";
 
@@ -43,7 +44,7 @@ public class SearchUser extends AppCompatActivity {
         responseView = (TextView) findViewById(R.id.responseView);
         country = (TextView) findViewById(R.id.country);
         rating = (TextView) findViewById(R.id.rating);
-        handle = (EditText) findViewById(R.id.handle);
+        handle = (TextView) findViewById(R.id.handle);
         city = (TextView) findViewById(R.id.city);
         maxrating = (TextView) findViewById(R.id.maxrating);
         contribution = (TextView) findViewById(R.id.contribution);
@@ -77,7 +78,11 @@ public class SearchUser extends AppCompatActivity {
         }
 
         protected String doInBackground(String... urls) {
-            String handles = handle.getText().toString();
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String s1 = settings.getString("username", null);
+            SQLiteDatabase data=openOrCreateDatabase("codemania",MODE_PRIVATE,null); //nobody other can access
+            data.execSQL("create table if not exists hint (name varchar, password varchar,confirm_password varchar,email varchar,codeforces varchar,phone varchar);");
+            String handles = "select codeforces from hint where name='" + s1;
             //String handles2 = webpage.getText().toString();
             // Do some validation here
 
@@ -188,7 +193,7 @@ public class SearchUser extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
-        startActivity(new Intent(SearchUser.this, home.class));
+        startActivity(new Intent(Userdata.this, home.class));
         finish();
 
     }
