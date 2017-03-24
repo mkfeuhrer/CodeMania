@@ -15,7 +15,7 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Problem Set" />
         <item
-            android:id="@+id/tutorials"
+            android:id="@+id/tutorial"
             android:icon="@drawable/ic_menu_manage"
             android:title="Tutorials" />
         <item

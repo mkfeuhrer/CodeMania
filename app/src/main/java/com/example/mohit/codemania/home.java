@@ -81,7 +81,7 @@ public class home extends AppCompatActivity
 
         } else if (id == R.id.problemset) {
 
-        } else if (id == R.id.tutorials) {
+        } else if (id == R.id.tutorial) {
 
         } else if (id == R.id.logout) {
             Intent i = new Intent(home.this, Login.class);
