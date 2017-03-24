@@ -1,233 +1,41 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_weight="1"
+    android:fitsSystemWindows="true"
     tools:context="com.example.mohit.codemania.SearchUser">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TextView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="User Handle :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
-        <EditText
-            android:id="@+id/handle"
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:hint="Codeforces Handle"
-            android:inputType="textEmailAddress" />
-    </LinearLayout>
+            android:layout_height="wrap_content" />
 
-    <LinearLayout
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Username :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
 
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Current Rating :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Max Rating :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/maxrating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Contribution :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/contribution"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="City :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Country :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/country"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Submissions :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <Button
-            android:id="@+id/submissions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Submissions"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_weight=".3"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".2"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/queryButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Submit"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_weight=".125"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.01">
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:indeterminate="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="200dp"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
-
-        <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/responseView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </ScrollView>
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
