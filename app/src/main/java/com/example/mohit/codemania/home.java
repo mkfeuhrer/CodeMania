@@ -3,6 +3,7 @@ package com.example.mohit.codemania;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -69,19 +70,7 @@ public class home extends AppCompatActivity
         submission = (Button) findViewById(R.id.submissions);
         //webpage = (EditText) findViewById(R.id.Codechef_handle);
         //codechefrating = (TextView) findViewById(R.id.Codechef_handle);
-
-
-        queryButton = (Button) findViewById(R.id.queryButton);
-        queryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //String ccuser = webpage.getText().toString();
-
-                //Log.e("user", ccuser);
-
-                new home.RetrieveFeedTask().execute();
-            }
-        });
+        new home.RetrieveFeedTask().execute();
     }
 
     public void onBackPressed()
@@ -190,7 +179,19 @@ public class home extends AppCompatActivity
             String s1 = settings.getString("username", null);
             SQLiteDatabase data=openOrCreateDatabase("codemania",MODE_PRIVATE,null); //nobody other can access
             data.execSQL("create table if not exists hint (name varchar, password varchar,confirm_password varchar,email varchar,codeforces varchar,phone varchar);");
-            String handles = "select codeforces from hint where name='" + s1;
+            String s = "select * from hint where name='" + s1 + "' ";
+            Log.e("aa",s);
+            Cursor cursor = data.rawQuery(s, null);
+            String handles="";
+            if (cursor.moveToFirst()) {
+                handles = cursor.getString( cursor.getColumnIndex("codeforces"));
+                Log.e("ab",handles);
+            }
+            else
+            {
+                Log.e("ab","null value of cursor");
+            }
+
             //String handles2 = webpage.getText().toString();
             // Do some validation here
 
@@ -223,7 +224,7 @@ public class home extends AppCompatActivity
             Log.i("INFO", response);
             //responseView.setText(response);
             try {
-                JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
+                JSONObject object = (JSONObject) new JSONObject(response);
                 JSONArray obj1 = object.getJSONArray("result");
                 JSONObject obj = obj1.getJSONObject(0);
                 //   String email1 = obj.getString("country");
@@ -259,12 +260,6 @@ public class home extends AppCompatActivity
                     lastname = obj.getString("lastName");
                 else lastname = "";
                 username.setText(firstname + " " + lastname);
-                submission.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String url = "http://codeforces.com/submissions/" + handle.getText().toString();
-                    }
-                });
             } catch (JSONException e) {
                 e.printStackTrace();
             }

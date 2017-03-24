@@ -1,208 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="com.example.mohit.codemania.home"
     android:orientation="vertical"
-    android:layout_weight="1"
-    tools:context="com.example.mohit.codemania.home">
+    android:paddingTop="50dp"
+    android:weightSum="100">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+        android:layout_height="0dp"
+        android:layout_weight="13"
+        android:orientation="horizontal"
+        android:weightSum="100">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="User Handle :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
-            android:id="@+id/handle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
-            android:textColor="#000000"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="17"
+            android:gravity="right|center_vertical"
+            android:text="@string/lessthan"
+            android:textSize="40sp"
             android:textStyle="bold"
-            android:inputType="textEmailAddress" />
+            android:textColor="#ff9100"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="66"
+            android:gravity="center_horizontal"
+            android:text="code_mania"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#2ba6ed"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="17"
+            android:gravity="left|center_vertical"
+            android:text="@string/greaterthan"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="#ff9100"/>
+
+
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/name"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Username :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/rating"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Current Rating :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/maxrating"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Max Rating :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/maxrating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/contri"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Contribution :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/contribution"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/city"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="City :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="10">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:src="@drawable/country"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Country :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
-
-        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="83"
+            android:gravity="center_horizontal|center_vertical"
             android:id="@+id/country"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".3"
+            android:textStyle="normal|bold"
+            android:textSize="20sp"
             android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:alpha="2.0" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
     </LinearLayout>
-
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".7"
-            android:text="Submissions :"
-            android:textColor="#000000"
-            android:textStyle="bold"></TextView>
 
-        <Button
-            android:id="@+id/submissions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Submissions"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_weight=".3"/>
-    </LinearLayout>
 
-    <LinearLayout
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".2"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
 
-        <Button
-            android:id="@+id/queryButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:text="Submit"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_weight=".125"/>
-
-    </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="#7b7777"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -63,7 +63,7 @@ public class Signup extends AppCompatActivity {
                     if (cursor.getCount() > 0) {
                         Toast.makeText(Signup.this, "User Already Exist", Toast.LENGTH_LONG).show();
                     } else {
-                        data.execSQL("insert into hint values ('" + s1 + "','" + s2 + "','\" + s3 + \"','\" + s4 + \"','\" + s5 + \"','\" + s6 + \"');");
+                        data.execSQL("insert into hint values ('" + s1 + "','" + s2 + "','" + s3 + "','" + s4 + "','" + s5 + "','" + s6 + "');");
                         Toast.makeText(Signup.this, "Signup Successful", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(Signup.this, Login.class);
                         startActivity(i);

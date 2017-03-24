@@ -37,12 +37,13 @@
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="match_parent"/>
+
         <EditText
+            android:id="@+id/txt1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="90"
-            android:hint="Username:"
-            android:id="@+id/txt1"/>
+            android:hint="Username:" />
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"

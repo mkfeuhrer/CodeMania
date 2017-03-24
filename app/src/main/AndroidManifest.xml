@@ -24,38 +24,41 @@
         </activity>
         <activity
             android:name=".Login"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signup"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Signup"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Browser"
             android:label="@string/title_activity_tabbed"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Tabbed" />
+            android:parentActivityName=".Tabbed"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Tabbed"
             android:label="@string/title_activity_tabbed"
-            android:screenOrientation="portrait"
             android:parentActivityName=".Tabbed"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Userdata"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Userdata"
             android:label="@string/title_activity_userdata"
             android:parentActivityName=".Userdata"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Calendar"
             android:screenOrientation="portrait"
-            android:label="@string/title_activity_Calendar" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Calendar"
+            android:label="@string/title_activity_Calendar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SuggestMain"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_problemset" />
+            android:label="@string/title_activity_problemset"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SearchUser"
             android:label="@string/title_activity_search_user"
@@ -67,6 +70,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Contact"></activity>
     </application>
 
 </manifest>
