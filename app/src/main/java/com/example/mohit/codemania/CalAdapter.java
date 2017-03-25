@@ -64,7 +64,7 @@ public class CalAdapter extends ArrayAdapter<CalData> {
 
 
 
-            //Log.d("khlkhlk ",days+" "+d1.getDate());
+           // Log.d("khlkhlk ",days+" "+d1.getDate());
             //formattedDate=formatDate(data.date());
         } catch (ParseException e) {
             e.printStackTrace();
@@ -82,6 +82,12 @@ public class CalAdapter extends ArrayAdapter<CalData> {
             imageView.setImageResource(R.drawable.codeforces);
         else if(url.contains("hackerrank"))
             imageView.setImageResource(R.drawable.hackerrank);
+        else if(url.contains("codechef"))
+            imageView.setImageResource(R.drawable.codechef);
+        else if(url.contains("hackerearth"))
+            imageView.setImageResource(R.drawable.hackerearth);
+
+
 
         return list;
     }
@@ -89,7 +95,7 @@ public class CalAdapter extends ArrayAdapter<CalData> {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date date1;
         date1 = df.parse(date);
-        Log.e("asdasda",date1+" ");
+       // Log.e("asdasda",date1+" ");
         SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
         String formattedDate= dateFormat.format(date1);
 
