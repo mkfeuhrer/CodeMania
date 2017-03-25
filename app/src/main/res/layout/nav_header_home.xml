@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/code"
-        android:background="#daf9f4"/>
+        android:background="#0edaf4"/>
 
     <TextView
         android:layout_width="match_parent"

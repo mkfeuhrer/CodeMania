@@ -34,6 +34,8 @@
                 android:layout_weight="83"
                 android:hint="Enter Handle"
                 android:id="@+id/handle"
+                android:lines="1"
+                android:maxLength="128"
                 android:singleLine="true"
                 android:textStyle="bold"/>
             <View

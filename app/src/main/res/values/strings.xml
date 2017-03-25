@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">CodeMania</string>
     <string-array name="problem_tags">
+
+        <item>Select a tag to continue : </item>
         <item>dp</item>
-        <item>dfs</item>
         <item>implementation</item>
-        <item>tree</item>
         <item>binary search</item>
         <item>divide and conquer</item>
         <item>greedy</item>

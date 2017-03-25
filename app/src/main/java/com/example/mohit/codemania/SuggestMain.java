@@ -39,18 +39,20 @@ public class SuggestMain extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String tag;
                 ArrayList<String> ss= new ArrayList<>();
+                ss.add("select to continue");
+
                 ss.add("dp");
-                ss.add("dfs");
                 ss.add("implementation");
-                ss.add("tree");
                 ss.add("binary+search");
                 ss.add("divide+and+conquer");
                 ss.add("greedy");
                 ss.add("math");
-                tag= ss.get(position);
-                String url2=url+tag;
-                problemsAsyncTask ptask = new problemsAsyncTask();
-                ptask.execute(url2);
+                if(position>0) {
+                    tag = ss.get(position);
+                    String url2 = url + tag;
+                    problemsAsyncTask ptask = new problemsAsyncTask();
+                    ptask.execute(url2);
+                }
             }
 
             @Override

@@ -1,5 +1,6 @@
 package com.example.mohit.codemania;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -49,8 +50,12 @@ public class SearchUser extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
+    }
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(SearchUser.this, home.class));
+        finish();
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.mohit.codemania;
 
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -102,7 +104,11 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
                 URL url = new URL(API_URL + "handles=" + handles);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    InputStream inputStream=urlConnection.getInputStream();
+                    if(inputStream==null){
+                        return "";
+                    }
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                     StringBuilder stringBuilder = new StringBuilder();
                     String line;
                     while ((line = bufferedReader.readLine()) != null) {
@@ -122,71 +128,66 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
         protected void onPostExecute(String response) {
             if (response == null) {
                 response = "THERE WAS AN ERROR";
-            }
-            progressBar.setVisibility(View.GONE);
-            Log.i("INFO", response);
-            //responseView.setText(response);
-            try {
-                JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
-                JSONArray obj1 = object.getJSONArray("result");
-                JSONObject obj = obj1.getJSONObject(0);
-                //   String email1 = obj.getString("country");
-                // System.out.println(email1);
-                int rating1 = 0, maxrating1 = 0;
-                String country1 = null, city1 = null, contribution1 = null, firstname = null, lastname = null;
-                if (obj.has("rating"))
-                    rating1 = obj.getInt("rating");
-                if (rating1 != 0)
-                    rating.setText(rating1 + "");
-                else rating.setText("Not Found ");
-                if (obj.has("country"))
-                    country1 = obj.getString("country");
-                else country1 = "Not Found ";
-                country.setText(country1);
-                if (obj.has("city"))
-                    city1 = obj.getString("city");
-                else city1 = "Not Found ";
-                city.setText(city1);
-                if (obj.has("maxRating"))
-                    maxrating1 = obj.getInt("maxRating");
-                if (maxrating1 != 0)
-                    maxrating.setText(maxrating1 + "");
-                else maxrating.setText("Not Found");
-                if (obj.has("contribution"))
-                    contribution1 = obj.getString("contribution");
-                else contribution1 = "Not Found";
-                contribution.setText(contribution1);
-                if (obj.has("firstName"))
-                    firstname = obj.getString("firstName");
-                else firstname = "Not Found";
-                if (obj.has("lastName"))
-                    lastname = obj.getString("lastName");
-                else lastname = "";
-                username.setText(firstname + " " + lastname);
-                submission.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String url = "http://codeforces.com/submissions/" + handle.getText().toString();
-                    }
-                });
-            } catch (JSONException e) {
-                e.printStackTrace();
+                Toast.makeText(getActivity(), "Invalid Handle", Toast.LENGTH_SHORT).show();
+
+            }else {
+                progressBar.setVisibility(View.GONE);
+                Log.i("INFO", response);
+                //responseView.setText(response);
+                try {
+                    JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
+                    JSONArray obj1 = object.getJSONArray("result");
+                    JSONObject obj = obj1.getJSONObject(0);
+                    //   String email1 = obj.getString("country");
+                    // System.out.println(email1);
+                    int rating1 = 0, maxrating1 = 0;
+                    String country1 = null, city1 = null, contribution1 = null, firstname = null, lastname = null;
+                    if (obj.has("rating"))
+                        rating1 = obj.getInt("rating");
+                    if (rating1 != 0)
+                        rating.setText(rating1 + "");
+                    else rating.setText("Not Found ");
+                    if (obj.has("country"))
+                        country1 = obj.getString("country");
+                    else country1 = "Not Found ";
+                    country.setText(country1);
+                    if (obj.has("city"))
+                        city1 = obj.getString("city");
+                    else city1 = "Not Found ";
+                    city.setText(city1);
+                    if (obj.has("maxRating"))
+                        maxrating1 = obj.getInt("maxRating");
+                    if (maxrating1 != 0)
+                        maxrating.setText(maxrating1 + "");
+                    else maxrating.setText("Not Found");
+                    if (obj.has("contribution"))
+                        contribution1 = obj.getString("contribution");
+                    else contribution1 = "Not Found";
+                    contribution.setText(contribution1);
+                    if (obj.has("firstName"))
+                        firstname = obj.getString("firstName");
+                    else firstname = "Not Found";
+                    if (obj.has("lastName"))
+                        lastname = obj.getString("lastName");
+                    else lastname = "";
+                    username.setText(firstname + " " + lastname);
+                    submission.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String url = "http://codeforces.com/submissions/" + handle.getText().toString();
+                            Uri uri = Uri.parse(url); // missing 'http://' will cause crashed
+                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
             // TODO: check this.exception
             // TODO: do something with the feed
 
-//            try {
-//                JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
-//                String requestID = object.getString("requestId");
-//                int likelihood = object.getInt("likelihood");
-//                JSONArray photos = object.getJSONArray("photos");
-//                .
-//                .
-//                .
-//                .
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
+
         }
     }
 

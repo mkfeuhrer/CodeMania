@@ -154,11 +154,15 @@ public class home extends AppCompatActivity
             finish();
 
         } else if (id == R.id.about) {
-
+            Intent i = new Intent(home.this, About.class);
+            startActivity(i);
+            finish();
         }
         else if(id == R.id.contact)
         {
-
+            Intent i = new Intent(home.this, Contact.class);
+            startActivity(i);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

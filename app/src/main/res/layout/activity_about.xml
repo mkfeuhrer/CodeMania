@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.7"
+        android:layout_weight="0.9"
         android:background="#defcf9"
         android:orientation="horizontal">
         <View
@@ -31,6 +31,10 @@
             android:layout_weight="0.6">
         </View>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"></View>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="10">
+            android:layout_weight="8">
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -49,7 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:src="@drawable/message"/>
+                android:src="@drawable/about"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -58,7 +62,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="86"
-                android:text="Email : mohitfeuhrer@gmail.com"
+                android:text="An android app to keep a track on algorithmic progress."
                 android:gravity="center_horizontal|center_vertical"
                 android:textStyle="normal|bold"
                 android:textSize="20sp"
@@ -74,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_weight="10">
+            android:layout_weight="8">
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -83,29 +87,28 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:src="@drawable/github"/>
+                android:src="@drawable/about"/>
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
-
-            <Button
+            <TextView
                 android:layout_width="0dp"
-                android:id="@+id/github"
                 android:layout_height="match_parent"
                 android:layout_weight="86"
-                android:background="#f6f9f8"
+                android:text="Feautures: Contest Calendar,Algorithmic Tutorials and Keep a track of competetive programming as well as compete "
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Github Repo: mkfeuhrer/CodeMania "
-                android:textAllCaps="false"
-                android:textColor="#000000"
+                android:textStyle="normal|bold"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="#000000"
+                android:alpha="2.0"
+                />
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -119,7 +122,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="86"
-                android:text="Made with  "
+                android:text="Happy   "
                 android:gravity="center|right"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -127,16 +130,17 @@
                 android:textColor="#000000"
                 />
             <ImageView
+                android:paddingTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/hearts"/>
+                android:layout_height="wrap_content"
+                android:src="@drawable/coding"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="86"
-                android:text="  at HINT'17"
-                android:gravity="center_horizontal|center_vertical|left"
+                android:text="  Coding"
+                android:gravity="left|center_vertical"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:background="#f6f9f8"
@@ -148,5 +152,5 @@
                 android:layout_weight="3"/>
 
         </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>
