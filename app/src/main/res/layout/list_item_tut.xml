@@ -27,7 +27,7 @@
             android:layout_weight="35"
             android:id="@+id/head"
             android:gravity="left"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="#000000"/>
         <View
@@ -40,7 +40,7 @@
             android:layout_height="0dp"
             android:layout_weight="32"
             android:id="@+id/desc"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:gravity="left|top"/>
         <View
             android:layout_width="match_parent"

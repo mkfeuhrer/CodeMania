@@ -118,7 +118,7 @@ public class Login extends AppCompatActivity {
 
 
     }
-    public void onBackPressed()
+ /*   public void onBackPressed()
     {
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
@@ -134,5 +134,5 @@ public class Login extends AppCompatActivity {
                 })
                 .setNegativeButton("No", null)
                 .show();
-    }
+    }*/
 }

@@ -64,7 +64,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
         contribution = (TextView) rootView.findViewById(R.id.contribution);
         username = (TextView) rootView.findViewById(R.id.username);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-        submission = (Button) rootView.findViewById(R.id.submissions);
+        //submission = (Button) rootView.findViewById(R.id.submissions);
         queryButton = (ImageButton) rootView.findViewById(R.id.queryButton);
 
         queryButton.setOnClickListener(this);
@@ -171,7 +171,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
                         lastname = obj.getString("lastName");
                     else lastname = "";
                     username.setText(firstname + " " + lastname);
-                    submission.setOnClickListener(new View.OnClickListener() {
+                    /*submission.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             String url = "http://codeforces.com/submissions/" + handle.getText().toString();
@@ -179,7 +179,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
                             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                             startActivity(intent);
                         }
-                    });
+                    });*/
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

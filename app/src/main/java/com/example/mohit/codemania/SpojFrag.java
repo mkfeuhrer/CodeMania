@@ -65,8 +65,16 @@ public class SpojFrag extends Fragment implements View.OnClickListener {
     public void onClick(View v) { //check for what button is pressed
         switch (v.getId()) {
             case R.id.submit:
-                String ur="http://www.spoj.com/users/"+handle.getText().toString()+"/";
-                new QuestionAsynTask().execute(ur);
+                String username = handle.getText().toString();
+                if(username.length()!=0) {
+                    String ur = "http://www.spoj.com/users/" + username + "/";
+                    new QuestionAsynTask().execute(ur);
+                }
+                else {
+                    if (username.length() == 0) {
+                        Toast.makeText(getActivity(), "Invalid Username",Toast.LENGTH_SHORT).show();
+                    }
+                }
                 break;
 
             default:
