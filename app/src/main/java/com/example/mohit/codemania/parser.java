@@ -1,5 +1,7 @@
 package com.example.mohit.codemania;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,17 +10,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 public class parser{
-    String jsondata="";
-    parser(String data){
+   JSONObject jsondata;
+    parser(JSONObject data){
         jsondata=data;
     }
+
+
    public  ArrayList<ProblemData> parseJson() throws JSONException {
         ArrayList<ProblemData> data = new ArrayList<>();
-        JSONObject jsonObject  = new JSONObject(jsondata);
+        JSONObject jsonObject  = jsondata;
        JSONObject res = jsonObject.getJSONObject("result");
        JSONArray problems = res.getJSONArray("problems");
         JSONArray stats = res.getJSONArray("problemStatistics");
-        for(int i=0;i<20 && i< stats.length();i++){
+        for(int i=0; i< stats.length() && i<20;i++){
             JSONObject nxtprob = problems.getJSONObject(i);
             JSONObject probstat = stats.getJSONObject(i);
             int id  = nxtprob.getInt("contestId");

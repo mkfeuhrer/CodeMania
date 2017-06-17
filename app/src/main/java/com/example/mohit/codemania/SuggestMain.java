@@ -4,12 +4,27 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+
 import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +38,9 @@ import java.util.ArrayList;
 
 
 public class SuggestMain extends AppCompatActivity  {
-
-    String url = "http://codeforces.com/api/problemset.problems?tags=";
+    //TODO
+    //Find new problem suggestion API
+    String urlx = "http://codeforces.com/api/problemset.problems?tags=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +65,10 @@ public class SuggestMain extends AppCompatActivity  {
                 ss.add("math");
                 if(position>0) {
                     tag = ss.get(position);
-                    String url2 = url + tag;
-                    problemsAsyncTask ptask = new problemsAsyncTask();
-                    ptask.execute(url2);
-                }
+                    String url2 = urlx + tag;
+                    String url=url2;
+                    Volley(url);
+                    }
             }
 
             @Override
@@ -64,6 +80,34 @@ public class SuggestMain extends AppCompatActivity  {
 
     }
 
+    public void Volley(String url){
+        RequestQueue mRequestQueue;
+        Cache cache = new DiskBasedCache(getCacheDir(), 5*1024 * 1024); // 5MB cap
+        Network network = new BasicNetwork(new HurlStack());
+        mRequestQueue = new RequestQueue(cache, network);
+        mRequestQueue.start();
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            updateUi(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //TODO
+                        //show error dialogue
+
+                    }
+                });
+        mRequestQueue.add(jsObjRequest);
+    }
     @Override
     public void onBackPressed()
     {
@@ -72,73 +116,7 @@ public class SuggestMain extends AppCompatActivity  {
         finish();
     }
 
-
-    public class problemsAsyncTask extends AsyncTask<String,Void,String>{
-
-        @Override
-        protected String doInBackground(String... url) {
-            String data = null;
-            URL queryurl = null;
-            try {
-                queryurl = new URL(url[0]);
-
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-
-            String response ="";
-            HttpURLConnection urlConnection = null;
-            InputStream inputStream = null;
-            try {
-                urlConnection  = (HttpURLConnection)queryurl.openConnection();
-                urlConnection.setRequestMethod("GET");
-                urlConnection.setConnectTimeout(2000);
-                if(urlConnection.getResponseCode()==200){
-                    inputStream=urlConnection.getInputStream();
-                    response=readData(inputStream);
-                    data = response;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return data;
-            }
-
-
-        protected void onPostExecute(String data)
-        {
-          ///  Log.e("hah",data);
-            try {
-                if(data!=null) {
-                    updateUi(data);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-    public String  readData(InputStream is) throws IOException {
-        StringBuilder out = new StringBuilder();
-
-        String read=null;
-        if(is!=null) {
-            InputStreamReader inputStreamReader = new InputStreamReader(is, Charset.forName("UTF-8"));
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-            read = reader.readLine();
-            while(read!=null){
-                out.append(read);
-                read = reader.readLine();
-
-            }
-        }
-        return out.toString();
-
-    }
-    public void updateUi(String data) throws JSONException {
+    public void updateUi(JSONObject data) throws JSONException {
         parser parsed = new parser(data);
          ArrayList<ProblemData> pdata ;
         final ArrayList<ProblemData> pdata1;

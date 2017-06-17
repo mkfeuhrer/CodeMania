@@ -39,6 +39,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
 
     EditText handle, webpage;
     Button submission;
+    String handles;
     ImageButton queryButton;
     TextView responseView, country, rating, username, city, maxrating, contribution, codechefrating;
     ProgressBar progressBar;
@@ -76,6 +77,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
     {
         switch (v.getId()) {
             case R.id.queryButton:
+                handles=handle.getText().toString();
                 new RetrieveFeedTask().execute();
                 break;
 
@@ -96,9 +98,6 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
         }
 
         protected String doInBackground(String... urls) {
-            String handles = handle.getText().toString();
-            //String handles2 = webpage.getText().toString();
-            // Do some validation here
 
             try {
                 URL url = new URL(API_URL + "handles=" + handles);
@@ -184,8 +183,7 @@ public class CodeForcesFrag extends Fragment implements View.OnClickListener{
                     e.printStackTrace();
                 }
             }
-            // TODO: check this.exception
-            // TODO: do something with the feed
+
 
 
         }

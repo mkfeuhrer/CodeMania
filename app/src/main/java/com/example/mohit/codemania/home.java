@@ -267,8 +267,6 @@ public class home extends AppCompatActivity
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            // TODO: check this.exception
-            // TODO: do something with the feed
 
 //            try {
 //                JSONObject object = (JSONObject) new JSONTokener(response).nextValue();
