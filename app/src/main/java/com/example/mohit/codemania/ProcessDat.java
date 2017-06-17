@@ -14,23 +14,25 @@ import java.util.LinkedList;
  */
 
 public class ProcessDat {
-    String data="[{\"time\":\"17:35\",\"date\":\"27/03/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"Educational Codeforces Round 18\"},{\"time\":\"19:05\",\"date\":\"29/03/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"Codeforces Round 407 (Div 1)\"},{\"time\":\"19:05\",\"date\":\"29/03/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"Codeforces Round 407 (Div 2)\"},{\"time\":\"18:00\",\"date\":\"31/03/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"April Fools Contest 2017\"},{\"time\":\"18:35\",\"date\":\"5/04/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"VK Cup 2017 - Wild Card Round 1\"},{\"time\":\"18:35\",\"date\":\"16/04/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"VK Cup 2017 - Round 2\"},{\"time\":\"18:35\",\"date\":\"26/04/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"VK Cup 2017 - Wild Card Round 2\"},{\"time\":\"18:35\",\"date\":\"7/05/2017\",\"url\":\"codeforces.com\",\"contest-name\":\"VK Cup - Round 3\"}]";
-    ProcessDat(String cdata){
+    JSONObject data;
+    ProcessDat(JSONObject cdata){
         data=cdata;
     }
     public ArrayList<CalData> dat() throws JSONException {
         ArrayList<CalData> dat = new ArrayList<>();
+        JSONObject jobj =data;
 
-        JSONArray jarr= new JSONArray(data);
+        JSONArray jarr= jobj.getJSONArray("objects");
 
         for(int i=0;i<jarr.length();i++){
             JSONObject obj= jarr.getJSONObject(i);
-            String time = obj.getString("time");
-            String date = obj.getString("date");
-            String name = obj.getString("contest-name");
-            String url=obj.getString("url");
-            Log.e("nnmnn",name);
-            dat.add(new CalData(name,url,date,time));
+            String time = obj.getString("start");
+            String time1=time.substring(time.indexOf("T")+1,time.length());
+            String date = time.substring(0,time.indexOf("T"));
+          //  Log.e("data",date);
+            String name = obj.getString("event");
+            String url=obj.getString("href");
+            dat.add(new CalData(name,url,date,time1));
         }
         return dat;
 

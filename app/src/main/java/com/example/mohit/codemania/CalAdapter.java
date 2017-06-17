@@ -30,10 +30,9 @@ public class CalAdapter extends ArrayAdapter<CalData> {
     }
     public View getView(int pos, View convertView, ViewGroup parent){
         View list = convertView;
-        // if(list==null){
-        list= LayoutInflater.from(getContext()).inflate(R.layout.caldata,parent,false);
-
-        //}
+         if(list==null){
+            list= LayoutInflater.from(getContext()).inflate(R.layout.caldata,parent,false);
+         }
         CalData data = getItem(pos);
         TextView dateText,nameText,timeText;
         dateText= (TextView) list.findViewById(R.id.date);
@@ -44,28 +43,17 @@ public class CalAdapter extends ArrayAdapter<CalData> {
         Date d1;
         long days;
 
-        // Find the root view
         View root = nameText.getRootView();
 
-        // Set the color
 
         ImageView imageView = (ImageView) list.findViewById(R.id.img);
         try {
             d1=formatDate(data.date());
 
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+           SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
             formattedDate= dateFormat.format(d1);
-            Date d2 = new Date();
-            days =getDifferenceDays(d2,d1);
 
-            root.setBackgroundColor(getColor(days));
-
-
-
-
-           // Log.d("khlkhlk ",days+" "+d1.getDate());
-            //formattedDate=formatDate(data.date());
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -78,41 +66,22 @@ public class CalAdapter extends ArrayAdapter<CalData> {
             e.printStackTrace();
         }
         String url = data.getUrl();
-        if(url.contains("codeforces"))
-            imageView.setImageResource(R.drawable.codeforces);
-        else if(url.contains("hackerrank"))
-            imageView.setImageResource(R.drawable.hackerrank);
-        else if(url.contains("codechef"))
-            imageView.setImageResource(R.drawable.codechef);
-        else if(url.contains("hackerearth"))
-            imageView.setImageResource(R.drawable.hackerearth);
+
+        //TODO
+        //SET DEFAULT IMAGE
+        imageView.setImageResource(R.drawable.codeforces);
 
 
 
         return list;
     }
     Date formatDate(String date) throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date date1;
         date1 = df.parse(date);
-       // Log.e("asdasda",date1+" ");
         SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        String formattedDate= dateFormat.format(date1);
 
         return date1;
     }
-    public static long getDifferenceDays(Date d1, Date d2) {
-        long diff = d2.getTime() - d1.getTime();
-        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-    }
-    private int getColor(long day) {
-        int magnitudeColorResourceId;
-        if(day<=3){
-            magnitudeColorResourceId=R.color.less_days;
 
-        }else{
-            magnitudeColorResourceId=R.color.more_days;
-        }
-        return ContextCompat.getColor(getContext(),magnitudeColorResourceId);
-    }
 }
