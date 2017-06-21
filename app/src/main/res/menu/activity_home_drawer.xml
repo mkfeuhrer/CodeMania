@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/homeicon"
+            android:title="Home" />
+        <item
+            android:id="@+id/searchuser"
+            android:icon="@drawable/searchusers"
+            android:title="Search User" />
+        <item
+            android:id="@+id/problemset"
+            android:icon="@drawable/mindmapfilled"
+            android:title="Problem Set" />
+        <item
+            android:id="@+id/cal"
+            android:icon="@drawable/today"
+            android:title="Contest Calendar" />
+        <item
+            android:id="@+id/tutorial"
+            android:icon="@drawable/school"
+            android:title="Tutorials" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_menu_share"
+                android:title="About" />
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Contact" />
+
+        </menu>
+    </item>
+
+</menu>
