@@ -39,8 +39,7 @@ import java.util.ArrayList;
 
 
 public class SuggestMain extends AppCompatActivity  {
-    //TODO
-    //Find new problem suggestion API
+    //TODO:Find new problem suggestion API
     String urlx = "http://codeforces.com/api/problemset.problems?tags=";
 
     @Override

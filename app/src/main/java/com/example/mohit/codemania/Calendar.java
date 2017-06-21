@@ -37,16 +37,33 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 public class Calendar extends AppCompatActivity {
-    String url="http://clist.by/api/v1/contest/?username=shubham7120k&api_key=a9d4c90d7cda799cdca6b214d6695d466cd5df8b&limit=500&start__year=2017&start__month=06&order_by=start";
+    int month=06;
+    int year = 2017;
+    String url="http://clist.by:80/api/v1/contest/?start__gt=2017-06-21%2013%3A43&order_by=start";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cal_layout);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String now = sdf.format(new Date());
+        Uri.Builder builder= new Uri.Builder();
+        builder.scheme("http")
+                .encodedAuthority("clist.by:80")
+               .appendPath("api").appendPath("v1").appendPath("contest").
+                appendQueryParameter("username","shubham7120k").
+                appendQueryParameter("api_key","a9d4c90d7cda799cdca6b214d6695d466cd5df8b").
+                appendQueryParameter("start__gt",now)
+                .appendQueryParameter("order_by","start");
+
+        url=builder.build().toString();
         Volley();
     }
     @Override

@@ -29,7 +29,6 @@ public class ProcessDat {
             String time = obj.getString("start");
             String time1=time.substring(time.indexOf("T")+1,time.length());
             String date = time.substring(0,time.indexOf("T"));
-          //  Log.e("data",date);
             String name = obj.getString("event");
             String url=obj.getString("href");
             dat.add(new CalData(name,url,date,time1));
