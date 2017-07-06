@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CalAdapter extends ArrayAdapter<CalData> {
 
-    String requiredArr[] = {"codeforces","codechef","hackerrank","hackerearth","topcoder"};
+    String requiredArr[] = {"codeforces","codechef","hackerrank","hackerearth","topcoder","csacademy"};
 
     public CalAdapter(Context context, List<CalData> caldatas) {
         super(context, 0,caldatas);
@@ -51,11 +51,8 @@ public class CalAdapter extends ArrayAdapter<CalData> {
         ImageView imageView = (ImageView) list.findViewById(R.id.img);
         try {
             d1=formatDate(data.date());
-
-
-           SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
             formattedDate= dateFormat.format(d1);
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -67,10 +64,8 @@ public class CalAdapter extends ArrayAdapter<CalData> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String url = data.getUrl();
 
-        //TODO
-        //SET IMAGE ACCORDING TO SITE
+
 
         int checksiteans = CheckSite(data.getUrl());
         if(checksiteans != -1)
@@ -84,8 +79,11 @@ public class CalAdapter extends ArrayAdapter<CalData> {
                 imageView.setImageResource(R.drawable.hackerrank);
             else if(checksiteans==3)
                 imageView.setImageResource(R.drawable.hackerearth);
-            else if(checksiteans==0)
+            else if(checksiteans==4)
                 imageView.setImageResource(R.drawable.topcoder);
+            else if(checksiteans==5)
+                imageView.setImageResource(R.drawable.csacademy);
+
         }
 
         return list;

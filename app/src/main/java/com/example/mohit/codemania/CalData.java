@@ -5,7 +5,7 @@ package com.example.mohit.codemania;
  */
 
 public class CalData {
-    String requiredArr[] = {"codeforces","codechef","hackerrank","hackerearth","topcoder"};
+    String requiredArr[] = {"codeforces","codechef","hackerrank","hackerearth","topcoder","csacademy"};
     private String name,site;
     private String url;
     private String date;
